@@ -17,6 +17,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//atidaromas langas (tuscias)
         setContentView(R.layout.activity_login);//pridek prie to lango, vaizda
+        setTitle("Login");
+
         //kodas rasomas nuo cia
         Button login=findViewById(R.id.loginbatonas);//susiejamas vaizde esantis elementa su kodu
         final EditText username=findViewById(R.id.usernametext);

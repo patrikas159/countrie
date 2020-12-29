@@ -20,6 +20,7 @@ public class NewEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_entry);
+        setTitle("New Entry");
 
         // Issitraukiame konkretu irasa is paspaustos korteles.
         Intent intent = getIntent();
