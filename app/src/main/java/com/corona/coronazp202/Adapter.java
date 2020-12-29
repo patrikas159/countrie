@@ -12,6 +12,8 @@ import android.widget.Toast;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    public static final String ENTRY="com.corona.coronazp202.ENTRY";
+
     private Context context;
     private LayoutInflater inflater;
     List<Corona> data;
@@ -70,6 +72,10 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @Override
         public void onClick(View v) {
             Intent goToNewEntryActivity = new Intent(context, NewEntryActivity.class);
+            int itemPosition = getAdapterPosition();
+            Corona corona = data.get(itemPosition);
+
+            goToNewEntryActivity.putExtra(ENTRY,corona);
             context.startActivity(goToNewEntryActivity);
         }
     }
