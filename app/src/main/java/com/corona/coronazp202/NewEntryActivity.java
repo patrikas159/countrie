@@ -24,7 +24,7 @@ public class NewEntryActivity extends AppCompatActivity {
 
         // Issitraukiame konkretu irasa is paspaustos korteles.
         Intent intent = getIntent();
-        Corona corona = (Corona) intent.getSerializableExtra(Adapter.ENTRY);
+        Countries countries = (Countries) intent.getSerializableExtra(Adapter.ENTRY);
 
         // Pasemame is vaizdo visus elementus su kuriais dirbsime.
         final CheckBox checkBoxLithuania = findViewById(R.id.country_lithuania);
@@ -37,7 +37,7 @@ public class NewEntryActivity extends AppCompatActivity {
 
         final Spinner spinnerUpdate = findViewById(R.id.last_update);
         ArrayList<String> updateList = new ArrayList<String>();
-        updateList.add(corona.getLastUpdate());
+        updateList.add(countries.getPopulation());
         updateList.add(getResources().getString(R.string.new_entry_date_2));
         updateList.add(getResources().getString(R.string.new_entry_date_3));
         updateList.add(getResources().getString(R.string.new_entry_date_4));
@@ -58,9 +58,9 @@ public class NewEntryActivity extends AppCompatActivity {
 
         // Uzpildome elementus (Coronos) informacija.
 
-        checkBoxPoland.setText(corona.getKeyId());
-        button2k.setText(String.valueOf(corona.getDeaths()));
-        editTextConfirmed.setText(String.valueOf(corona.getConfirmed()));
+        checkBoxPoland.setText(countries.getName());
+        button2k.setText(String.valueOf(countries.getCapital()));
+        editTextConfirmed.setText(String.valueOf(countries.getRegion()));
 
         // Ant mygtuko paspaudimo parodyti visa vartotojo ivesta informacija.
         buttonDisplaySelected.setOnClickListener(new View.OnClickListener() {
@@ -84,28 +84,28 @@ public class NewEntryActivity extends AppCompatActivity {
                 int selectedId = groupDeaths.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
                 RadioButton selectedButton = (RadioButton) findViewById(selectedId);
-                int deaths = Integer.parseInt(selectedButton.getText().toString());
+                int capital = Integer.parseInt(selectedButton.getText().toString());
 
-                String updateDate = String.valueOf(spinnerUpdate.getSelectedItem());
+                String population = String.valueOf(spinnerUpdate.getSelectedItem());
 
-                String confirmed = editTextConfirmed.getText().toString();
+                String region = editTextConfirmed.getText().toString();
 
                 editTextConfirmed.setError(null);
-                if (Validation.isValidNumber(confirmed)){
+                if (Validation.isValidNumber(region)){
                     // Sukuriamas korona objektas is GUI elementu.
-                    // public Corona(String lastUpdate, String keyId, int confirmed, int deaths)
-                    Corona corona = new Corona(updateDate,countries, Integer.parseInt(confirmed), deaths);
+                    // public Corona(String lastUpdate, String keyId, int region, int capital)
+                    Countries countries = new Countries(population,countries, Integer.parseInt(region), capital);
 
                     // Atvaizduojamas vartotojui objekto informacija.
                     Toast.makeText(
                             NewEntryActivity.this,
-                            "Country(-ies): " + corona.getKeyId() + "\n " +
-                                    "Last update: " + corona.getLastUpdate() + "\n " +
-                                    "Confirmed: " + corona.getConfirmed() + "\n " +
-                                    "Deaths: " + corona.getDeaths(),
+                            "Country(-ies): " + countries.getName() + "\n " +
+                                    "Last update: " + countries.getCapital() + "\n " +
+                                    "Confirmed: " + countries.getRegion() + "\n " +
+                                    "Deaths: " + countries.getPopulation(),
                             Toast.LENGTH_SHORT
                     ).show();
-                } else { // blogai įvesti confirmed duomenys
+                } else { // blogai įvesti region duomenys
                     editTextConfirmed.setError(getResources().getString(R.string.new_entry_invalid_confirmed));
                     editTextConfirmed.requestFocus();
                 }

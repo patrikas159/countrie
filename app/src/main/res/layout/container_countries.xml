@@ -7,7 +7,7 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/textKeyId"
+        android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -16,7 +16,7 @@
         android:textColor="@color/colorAccent" />
 
     <TextView
-        android:id="@+id/textConfirmed"
+        android:id="@+id/textRegion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -28,7 +28,7 @@
         android:textColor="@color/colorWhite" />
 
     <TextView
-        android:id="@+id/textDeaths"
+        android:id="@+id/textPopulation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -40,10 +40,10 @@
         android:textColor="@color/colorWhite" />
 
     <TextView
-        android:id="@+id/textLastUpdate"
+        android:id="@+id/textCapital"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textKeyId"
+        android:layout_below="@id/textName"
         android:layout_marginLeft="5dp"
         android:text="Last Update"
         android:textAppearance="?android:attr/textAppearanceSmall"
