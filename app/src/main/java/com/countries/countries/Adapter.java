@@ -1,4 +1,4 @@
-package com.corona.coronazp202;
+package com.countries.countries;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static final String ENTRY="com.corona.coronazp202.ENTRY";
+    public static final String ENTRY="com.countries.countries.ENTRY";
 
     private Context context;
     private LayoutInflater inflater;
@@ -39,10 +39,10 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // Get current position of item in RecyclerView to bind data and assign values from list
         MyHolder myHolder = (MyHolder) holder;
         Countries current = data.get(position);
-        myHolder.textName.setText(current.getName());
-        myHolder.textCapital.setText("Last update: " + current.getCapital());
-        myHolder.textRegion.setText("Confirmed: " + current.getRegion());
-        myHolder.textPopulation.setText("Deaths: " + current.getPopulation());
+        myHolder.Country.setText(current.getCountry());
+        myHolder.textCapital.setText("Capital: " + current.getCapital());
+        myHolder.textRegion.setText("Region: " + current.getRegion());
+        myHolder.textPopulation.setText("Population: " + current.getPopulation());
     }
 
     // return total item from List
@@ -53,7 +53,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView textName;
+        TextView Country;
         TextView textCapital;
         TextView textRegion;
         TextView textPopulation;
@@ -61,7 +61,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // create constructor to get widget reference
         public MyHolder(View itemView) {
             super(itemView);
-            textName = (TextView) itemView.findViewById(R.id.textName);
+            Country = (TextView) itemView.findViewById(R.id.textName);
             textCapital = (TextView) itemView.findViewById(R.id.textCapital);
             textRegion = (TextView) itemView.findViewById(R.id.textRegion);
             textPopulation = (TextView) itemView.findViewById(R.id.textPopulation);

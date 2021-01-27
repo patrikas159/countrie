@@ -1,4 +1,4 @@
-package com.corona.coronazp202;
+package com.countries.countries;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,19 +17,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 import android.app.SearchManager;
 import android.support.v7.widget.SearchView;
 
 public class SearchActivity extends AppCompatActivity {
-    public static final String COUNTRIES_API = "https://restcountries.eu/rest/v2/name/";
+    public static final String COUNTRIES_API = "https://restcountries.eu/rest/v2/all";
 
     private RecyclerView recyclerView;
     private Adapter adapter;
 
-    private ArrayList<Countries> countriesList = new ArrayList<Countries>();
+    private ArrayList<Countries> CountriesList = new ArrayList<Countries>();
 
     SearchView searchView = null;
 
@@ -37,7 +36,6 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        setTitle("Search");
 
         AsyncFetch asyncFetch = new AsyncFetch();
         asyncFetch.execute();
@@ -78,15 +76,15 @@ public class SearchActivity extends AppCompatActivity {
             }
 
             // From all countries covid list creates specific list by searched country
-            ArrayList<Countries> countriesListByQuery = JSON.getCountriesListByQuery(countriesList, query);
+            ArrayList<Countries> countriesListByCountry = JSON.getCountryListByCountry(CountriesList, query);
 
-            if (countriesListByQuery.size() == 0) {
+            if (countriesListByCountry.size() == 0) {
                 Toast.makeText(this, getResources().getString(R.string.search_no_results) + query, Toast.LENGTH_SHORT).show();
             }
 
             // Setup and Handover data to recyclerview
             recyclerView = (RecyclerView) findViewById(R.id.countries_list);
-            adapter = new Adapter(SearchActivity.this, countriesListByQuery);
+            adapter = new Adapter(SearchActivity.this, countriesListByCountry);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
         }
@@ -106,42 +104,43 @@ public class SearchActivity extends AppCompatActivity {
 
         @Override
         protected ArrayList<Countries> doInBackground(String... params) {
+
             try {
                 JSONObject jsonObject = JSON.readJsonFromUrl(COUNTRIES_API);
-                
-
-                    JSONArray jsonArray = null;
-                    countriesList = new ArrayList<Countries>();
-                    try {
-                        jsonArray = JSON.getJSONArray(jsonObject);
-                        countriesList = JSON.getList(jsonArray);
-                    } catch (JSONException e) {
-                        Toast.makeText(
-                                SearchActivity.this,
-                                getResources().getText(R.string.search_error_reading_data) + e.getMessage(),
-                                Toast.LENGTH_LONG
-                        ).show();
-                    }
-                    return countriesList;
-            } catch (JSONException | IOException e1) {
+                JSONArray jsonArray = null;
+                CountriesList = new ArrayList<Countries>();
+                try {
+                    jsonArray = JSON.getJSONArray(jsonObject);
+                    CountriesList = JSON.getList(jsonArray);
+                    System.err.println(CountriesList);
+                } catch (JSONException e) {
+                    Toast.makeText(
+                            SearchActivity.this,
+                            getResources().getText(R.string.search_error_reading_data) + e.getMessage(),
+                            Toast.LENGTH_LONG
+                    ).show();
+                }
+                return CountriesList;
+            }  catch (JSONException | IOException e1) {
                 Toast.makeText(
                         SearchActivity.this,
                         getResources().getText(R.string.search_error_reading_data) + e1.getMessage(),
                         Toast.LENGTH_LONG
                 ).show();
+
                 return null;
             }
-            
         }// doInBackground
 
         @Override
         protected void onPostExecute(ArrayList<Countries> countriesList) {
             //this method will be running on UI thread
             pdLoading.dismiss();
+            
+            if(countriesList != null) {
+                Toast.makeText(SearchActivity.this, getResources().getString(R.string.search_found_entries_from_api), Toast.LENGTH_SHORT).show();
+            }
 
-           if(countriesList != null) {
-               Toast.makeText(SearchActivity.this, getResources().getString(R.string.search_found_entries_from_api) + countriesList.size(), Toast.LENGTH_SHORT).show();
-           }
         }//onPostExecute
     }//AsyncFetch class
 }

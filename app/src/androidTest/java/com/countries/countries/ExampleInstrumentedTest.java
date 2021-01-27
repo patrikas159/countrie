@@ -1,4 +1,4 @@
-package com.corona.coronazp202;
+package com.countries.countries;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

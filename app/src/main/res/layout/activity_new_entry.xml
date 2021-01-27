@@ -22,8 +22,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/new_entry_country"
-                android:textColor="@color/colorWhite"/>
+                android:text="@string/new_entry_countries"
+                android:textColor="@color/colorAccent"/>
 
             <CheckBox
                 android:id="@+id/country_lithuania"
@@ -57,34 +57,34 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/new_entry_deaths"
-                android:textColor="@color/colorWhite"/>
+                android:text="@string/new_entry_population"
+                android:textColor="@color/colorAccent"/>
 
             <RadioGroup
-                android:id="@+id/deaths"
+                android:id="@+id/population"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/new_entry_deaths_100" />
+                    android:text="@string/new_entry_deaths_10000" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/new_entry_deaths_500" />
+                    android:text="@string/new_entry_deaths_100000" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/new_entry_deaths_1000" />
+                    android:text="@string/new_entry_deaths_1000000" />
 
                 <RadioButton
                     android:id="@+id/two_thousand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/new_entry_deaths_2000"
+                    android:text="@string/new_entry_deaths_10000000"
                     android:checked="true"/>
             </RadioGroup>
 
@@ -95,11 +95,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/new_entry_last_update"
-                android:textColor="@color/colorWhite"/>
+                android:text="@string/new_entry_capital"
+                android:textColor="@color/colorAccent"/>
 
             <Spinner
-                android:id="@+id/last_update"
+                android:id="@+id/capital"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -110,11 +110,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/new_entry_confirmed"
-                android:textColor="@color/colorWhite"/>
+                android:text="@string/new_entry_region"
+                android:textColor="@color/colorAccent"/>
 
             <EditText
-                android:id="@+id/confirmed"
+                android:id="@+id/region"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

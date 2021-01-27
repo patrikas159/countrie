@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">CoronaZP20T</string>
-    <string name="app_title">infection online status</string>
+    <string name="app_name">Countries</string>
+    <string name="app_title">All world countries</string>
 
     <string name="login_username">Username</string>
     <string name="login_password">Password</string>
@@ -9,27 +9,34 @@
     <string name="login_register_btn">Register</string>
     <string name="login_invalid_username">Wrong Username Or/And Password</string>
 
-    <string name="search_loading_data">Please wait for covid data to be displayed</string>
+    <string name="register_email">Email</string>
+    <string name="app_register">Registracija</string>
+    <string name="register_username">Username</string>
+    <string name="register_password">Password</string>
+    <string name="register_register_btn">Register</string>
+    <string name="Register_invalid_username">Wrong username or/ email or/ and password </string>
+
+    <string name="search_loading_data">Please wait for countries data to be displayed</string>
     <string name="search_error_reading_data">Couldnt read data from API. For more information: </string>
     <string name="search_no_results">No search results found for query: </string>
     <string name="search_found_entries_from_api">Found total number of corona entries: </string>
 
-    <string name="new_entry_last_update">Last update:</string>
-    <string name="new_entry_date_1">2020-12-16T05:28:04+00:00</string>
-    <string name="new_entry_date_2">2020-12-15T05:28:04+00:00</string>
-    <string name="new_entry_date_3">2020-12-14T05:28:04+00:00</string>
-    <string name="new_entry_date_4">2020-12-13T05:28:04+00:00</string>
-    <string name="new_entry_deaths">Deaths:</string>
-    <string name="new_entry_deaths_100">100</string>
-    <string name="new_entry_deaths_500">500</string>
-    <string name="new_entry_deaths_1000">1000</string>
-    <string name="new_entry_deaths_2000">2000</string>
-    <string name="new_entry_country">Country:</string>
+    <string name="new_entry_capital">Capital:</string>
+    <string name="new_entry_capital_1">Kabul</string>
+    <string name="new_entry_capital_2">Mariehamn</string>
+    <string name="new_entry_capital_3">Vilnius</string>
+    <string name="new_entry_capital_4">London</string>
+    <string name="new_entry_population">Population:</string>
+    <string name="new_entry_deaths_10000">10000</string>
+    <string name="new_entry_deaths_100000">100000</string>
+    <string name="new_entry_deaths_1000000">1000000</string>
+    <string name="new_entry_deaths_10000000">10000000</string>
+    <string name="new_entry_countries">Country:</string>
     <string name="new_entry_country_lithuania">Lithuania</string>
     <string name="new_entry_country_latvia">Latvia</string>
     <string name="new_entry_country_estonia">Estonia</string>
     <string name="new_entry_country_poland">Poland</string>
-    <string name="new_entry_confirmed">Confirmed:</string>
+    <string name="new_entry_region">Region:</string>
     <string name="new_entry_display_btn">Display selected</string>
     <string name="new_entry_invalid_confirmed">Wrong confirmed number</string>
 

@@ -1,4 +1,4 @@
-package com.corona.coronazp202;
+package com.countries.countries;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //kodas rasomas nuo cia
         Button login=findViewById(R.id.loginbatonas);//susiejamas vaizde esantis elementa su kodu
+        Button register = findViewById(R.id.register);
         final EditText username=findViewById(R.id.usernametext);
         final EditText password=findViewById(R.id.passwordtext);
 
@@ -63,6 +63,16 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(i);
+                finish();
+
+            }
+        });
+
 
     }
 

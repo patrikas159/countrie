@@ -1,69 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
     android:padding="10dp">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
-        android:text="@string/app_title"
+        android:text="@string/app_register"
         android:textAlignment="center"
-        android:textAllCaps="true"
+        android:fontFamily="casual"
         android:textColor="@color/colorRed"
-        android:textSize="20dp" />
+        android:textAllCaps="true"
+        android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/usernametext"
+        android:id="@+id/register_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/login_username" />
+        android:hint="@string/register_username" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
     <EditText
-        android:id="@+id/passwordtext"
+        android:id="@+id/register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/login_password" />
-
-    <CheckBox
-        android:id="@+id/rememberMe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login_checkbox" />
+        android:hint="@string/register_email" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="10dp" />
 
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/register_password" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:weightSum="2">
 
-        <Button
-            android:id="@+id/loginbatonas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorRed"
-            android:text="@string/login_login_btn" />
 
         <Button
-            android:id="@+id/register"
+            android:id="@+id/registerbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:text="@string/register_register_btn"
             android:background="@color/colorGray"
-            android:text="@string/login_register_btn" />
+            android:layout_weight="1"/>
 
     </LinearLayout>
 

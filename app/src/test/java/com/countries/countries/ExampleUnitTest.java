@@ -1,4 +1,4 @@
-package com.corona.coronazp202;
+package com.countries.countries;
 
 import org.junit.Test;
 

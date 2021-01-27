@@ -1,4 +1,4 @@
-package com.corona.coronazp202;
+package com.countries.countries;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -32,15 +32,15 @@ public class NewEntryActivity extends AppCompatActivity {
         final CheckBox checkBoxEstonia = findViewById(R.id.country_estonia);
         final CheckBox checkBoxPoland = findViewById(R.id.country_poland);
 
-        final RadioGroup groupDeaths = findViewById(R.id.deaths);
+        final RadioGroup groupPopulation = findViewById(R.id.population);
         RadioButton button2k = findViewById(R.id.two_thousand);
 
-        final Spinner spinnerUpdate = findViewById(R.id.last_update);
+        final Spinner spinnerCapital = findViewById(R.id.capital);
         ArrayList<String> updateList = new ArrayList<String>();
-        updateList.add(countries.getPopulation());
-        updateList.add(getResources().getString(R.string.new_entry_date_2));
-        updateList.add(getResources().getString(R.string.new_entry_date_3));
-        updateList.add(getResources().getString(R.string.new_entry_date_4));
+        updateList.add(countries.getCapital());
+        updateList.add(getResources().getString(R.string.new_entry_capital_2));
+        updateList.add(getResources().getString(R.string.new_entry_capital_3));
+        updateList.add(getResources().getString(R.string.new_entry_capital_4));
         // Adapteris reikalingas sujungti, isdestyma su stringArray.
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
                 this,
@@ -49,18 +49,18 @@ public class NewEntryActivity extends AppCompatActivity {
         );
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Adapteri idedame i musu spinneri.
-        spinnerUpdate.setAdapter(dataAdapter);
+        spinnerCapital.setAdapter(dataAdapter);
 
 
-        final EditText editTextConfirmed = findViewById(R.id.confirmed);
+        final EditText editTextRegion = findViewById(R.id.region);
 
         Button buttonDisplaySelected = findViewById(R.id.display_selected_btn);
 
         // Uzpildome elementus (Coronos) informacija.
 
-        checkBoxPoland.setText(countries.getName());
+        checkBoxPoland.setText(countries.getCountry());
         button2k.setText(String.valueOf(countries.getCapital()));
-        editTextConfirmed.setText(String.valueOf(countries.getRegion()));
+        editTextRegion.setText(String.valueOf(countries.getRegion()));
 
         // Ant mygtuko paspaudimo parodyti visa vartotojo ivesta informacija.
         buttonDisplaySelected.setOnClickListener(new View.OnClickListener() {
@@ -81,33 +81,34 @@ public class NewEntryActivity extends AppCompatActivity {
                 }
 
                 // get selected radio button from radioGroup
-                int selectedId = groupDeaths.getCheckedRadioButtonId();
+                int selectedId = groupPopulation.getCheckedRadioButtonId();
                 // find the radiobutton by returned id
                 RadioButton selectedButton = (RadioButton) findViewById(selectedId);
-                int capital = Integer.parseInt(selectedButton.getText().toString());
+                int population = Integer.parseInt(selectedButton.getText().toString());
 
-                String population = String.valueOf(spinnerUpdate.getSelectedItem());
+                String capital = String.valueOf(spinnerCapital.getSelectedItem());
 
-                String region = editTextConfirmed.getText().toString();
+                String region = editTextRegion.getText().toString();
 
-                editTextConfirmed.setError(null);
+                editTextRegion.setError(null);
                 if (Validation.isValidNumber(region)){
                     // Sukuriamas korona objektas is GUI elementu.
                     // public Corona(String lastUpdate, String keyId, int region, int capital)
-                    Countries countries = new Countries(population,countries, Integer.parseInt(region), capital);
+                    Countries countrie = new Countries(capital,countries, region, population);
+
 
                     // Atvaizduojamas vartotojui objekto informacija.
                     Toast.makeText(
                             NewEntryActivity.this,
-                            "Country(-ies): " + countries.getName() + "\n " +
-                                    "Last update: " + countries.getCapital() + "\n " +
-                                    "Confirmed: " + countries.getRegion() + "\n " +
-                                    "Deaths: " + countries.getPopulation(),
+                            "Name: " + countrie.getCountry() + "\n " +
+                                    "Population: " + countrie.getPopulation() + "\n " +
+                                    "Region: " + countrie.getRegion() + "\n " +
+                                    "Capital: " + countrie.getCapital(),
                             Toast.LENGTH_SHORT
                     ).show();
                 } else { // blogai įvesti region duomenys
-                    editTextConfirmed.setError(getResources().getString(R.string.new_entry_invalid_confirmed));
-                    editTextConfirmed.requestFocus();
+                    editTextRegion.setError(getResources().getString(R.string.new_entry_invalid_confirmed));
+                    editTextRegion.requestFocus();
                 }
             }
         });

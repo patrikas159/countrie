@@ -47,6 +47,6 @@
         android:layout_marginLeft="5dp"
         android:text="Last Update"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/colorGrey" />
+        android:textColor="@color/colorAccent" />
 
 </RelativeLayout>

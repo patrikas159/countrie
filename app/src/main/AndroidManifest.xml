@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.corona.coronazp202">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.countries.countries">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,7 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewEntryActivity"></activity>
+        <activity android:name=".RegisterActivity">
+            <intent-filter>
+                <action android:name="android.inent.action.Register"/>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Countries"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".NewEntryActivity" />
 
         <meta-data
             android:name="android.app.default_searchable"
